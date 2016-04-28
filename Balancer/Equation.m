@@ -32,17 +32,39 @@
 -(NSMutableString *) side:(NSMutableArray *)sd {
 	NSMutableString *res = [[NSMutableString alloc] initWithCapacity:10];
 	
-	for (long i = [sd count] - 1; i >= 0; i--) {
+	for (long i = [sd count] - 1; i > 1; i--) {
 		if ([[sd objectAtIndex:i] doubleValue] == 1.0) {
-			[res appendFormat:@"x^%li", i];
+			[res appendFormat:@"x^%li + ", i];
 		}
 		else {
 			(isInt([sd objectAtIndex:i])) ?
-			
+			[res appendFormat:@"%ix^%li + ", (int)[[sd objectAtIndex:i] integerValue], i] :
+			[res appendFormat:@"%fx^%li + ", (double)[[sd objectAtIndex:i] doubleValue], i];
 		}
 	}
 	
+	if ([[sd objectAtIndex:1] doubleValue] == 1.0) {
+		[res appendString:@"x + "];
+	}
+	else {
+		(isInt([sd objectAtIndex:1])) ?
+		[res appendFormat:@"%ix + ", (int)[[sd objectAtIndex:1] integerValue]] :
+		[res appendFormat:@"%fx + ", (double)[[sd objectAtIndex:1] doubleValue]];
+	}
 	
+	if (isInt([sd objectAtIndex:0])) {
+		[res appendFormat:@"%i + ", (int)[[sd objectAtIndex:1] integerValue]];
+	}
+	else {
+		[res appendFormat:@"%fx + ", (double)[[sd objectAtIndex:1] doubleValue]];
+	}
+	
+	if ([res length] == 0) {
+		[res setString:@"0"];
+	}
+	else {
+		[res deleteCharactersInRange:NSMakeRange([res length]-3, 3)];
+	}
 	
 	return res;
 }
