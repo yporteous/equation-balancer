@@ -10,4 +10,11 @@
 
 @interface Equation : NSObject
 
+@property NSMutableArray *l,*r;
+
+-(void) scale:(float)f;
+-(void) add:(float)f atDegree:(int)d;
+-(NSString *) side:(NSMutableArray *)s;
+
+
 @end
