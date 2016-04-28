@@ -13,7 +13,7 @@
 @property NSMutableArray *l,*r;
 
 
--(id) initZero;									//inits with lhs = rhs = 0
+-(id) init;										//inits with lhs = rhs = 0
 
 -(void) scale:(double)f;						//scales both sides by factor f
 -(void) add:(double)f atDegree:(int)d;			//adds a factor of f*x^d

@@ -9,17 +9,22 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @end
 
 @implementation ViewController
 
 @synthesize eqn;
-
+@synthesize equationLabel;
+//Equation* eqn = [[Equation alloc] initZero];
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	_equationLabel.text = [eqn side:eqn.l];
+//	equationLabel.text = [eqn side:eqn.l];
+//	[equationLabel setText:[eqn side:eqn.l]];
+	NSLog(@"View Loaded");
+	NSLog(@"%@", [eqn side:[eqn l]]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +33,8 @@
 }
 
 -(IBAction)addX {
-	[eqn add:1.0 atDegree:1];
-	_equationLabel.text = [eqn side:eqn.l];
+//	[eqn add:1.0 atDegree:1];
+//	equationLabel.text = [eqn side:eqn.l];
 }
 
 @end
