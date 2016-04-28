@@ -13,11 +13,10 @@
 @property NSMutableArray *l,*r;
 
 
--(id) initZero;
+-(id) initZero;									//inits with lhs = rhs = 0
 
--(void) scale:(float)f;
--(void) add:(float)f atDegree:(int)d;
--(NSMutableString *) side:(NSMutableArray *)s;
-
+-(void) scale:(double)f;						//scales both sides by factor f
+-(void) add:(double)f atDegree:(int)d;			//adds a factor of f*x^d
+-(NSMutableString *) side:(NSMutableArray *)s;	//creates a string for printing
 
 @end

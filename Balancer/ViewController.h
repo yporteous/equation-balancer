@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Equation.h"
 
 @interface ViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *equationLabel;
+@property Equation *eqn;
 
 @end
 

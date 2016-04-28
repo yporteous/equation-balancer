@@ -7,7 +7,18 @@
 //
 
 #import "Equation.h"
-#import "NumberTests.m"
+//#import "NumberTests.m"
+
+BOOL isInt(NSNumber *num) {
+	double dVal = [num doubleValue];
+	if (dVal >= 0.0) {
+		return (dVal == ceil(dVal));
+	}
+	else {
+		return (dVal == floor(dVal));
+	}
+}
+
 
 @implementation Equation
 
@@ -24,7 +35,7 @@
 }
 
 
--(void) scale:(float)f {
+-(void) scale:(double)f {
 	for (int i = 0; i < [l count]; i++) {
 		[self.l replaceObjectAtIndex:i withObject:@(f * [[self.l objectAtIndex:i] doubleValue])];
 	}
@@ -35,7 +46,7 @@
 	
 }
 
--(void) add:(float)f atDegree:(int)d {
+-(void) add:(double)f atDegree:(int)d {
 	[self.l replaceObjectAtIndex:d withObject:@(d + [[self.l objectAtIndex:d] doubleValue])];
 	[self.r replaceObjectAtIndex:d withObject:@(d + [[self.r objectAtIndex:d] doubleValue])];
 }

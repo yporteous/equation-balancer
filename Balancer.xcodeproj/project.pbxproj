@@ -16,7 +16,6 @@
 		D85D56801CD240FE00150216 /* BalancerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D567F1CD240FE00150216 /* BalancerTests.m */; };
 		D85D568B1CD240FE00150216 /* BalancerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D568A1CD240FE00150216 /* BalancerUITests.m */; };
 		D85D569A1CD2412D00150216 /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D56991CD2412D00150216 /* Equation.m */; };
-		D85D569D1CD25B1A00150216 /* NumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D569C1CD25B1A00150216 /* NumberTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		D85D568C1CD240FE00150216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85D56981CD2412D00150216 /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equation.h; sourceTree = "<group>"; };
 		D85D56991CD2412D00150216 /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equation.m; sourceTree = "<group>"; };
-		D85D569C1CD25B1A00150216 /* NumberTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +106,9 @@
 			children = (
 				D85D56681CD240FE00150216 /* AppDelegate.h */,
 				D85D56691CD240FE00150216 /* AppDelegate.m */,
-				D85D566B1CD240FE00150216 /* ViewController.h */,
 				D85D56981CD2412D00150216 /* Equation.h */,
 				D85D56991CD2412D00150216 /* Equation.m */,
-				D85D569C1CD25B1A00150216 /* NumberTests.m */,
+				D85D566B1CD240FE00150216 /* ViewController.h */,
 				D85D566C1CD240FE00150216 /* ViewController.m */,
 				D85D566E1CD240FE00150216 /* Main.storyboard */,
 				D85D56711CD240FE00150216 /* Assets.xcassets */,
@@ -281,7 +278,6 @@
 				D85D566D1CD240FE00150216 /* ViewController.m in Sources */,
 				D85D566A1CD240FE00150216 /* AppDelegate.m in Sources */,
 				D85D56671CD240FE00150216 /* main.m in Sources */,
-				D85D569D1CD25B1A00150216 /* NumberTests.m in Sources */,
 				D85D569A1CD2412D00150216 /* Equation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +504,7 @@
 				D85D56911CD240FE00150216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D85D56921CD240FE00150216 /* Build configuration list for PBXNativeTarget "BalancerTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +513,7 @@
 				D85D56941CD240FE00150216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D85D56951CD240FE00150216 /* Build configuration list for PBXNativeTarget "BalancerUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +522,7 @@
 				D85D56971CD240FE00150216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
