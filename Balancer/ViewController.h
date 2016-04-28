@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *equationLabel;
 @property Equation *eqn;
 
+-(IBAction)addX;
+
 @end
 
