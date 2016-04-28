@@ -13,6 +13,17 @@
 
 @synthesize l,r;
 
+
+-(id) initZero {
+	self = [super init];
+	if (self) {
+		[self.l addObject:@(0.0)];
+		[self.r addObject:@(0.0)];
+	}
+	return self;
+}
+
+
 -(void) scale:(float)f {
 	for (int i = 0; i < [l count]; i++) {
 		[self.l replaceObjectAtIndex:i withObject:@(f * [[self.l objectAtIndex:i] doubleValue])];

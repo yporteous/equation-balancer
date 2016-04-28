@@ -12,6 +12,9 @@
 
 @property NSMutableArray *l,*r;
 
+
+-(id) initZero;
+
 -(void) scale:(float)f;
 -(void) add:(float)f atDegree:(int)d;
 -(NSMutableString *) side:(NSMutableArray *)s;
