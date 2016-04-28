@@ -14,7 +14,7 @@
 
 -(void) scale:(float)f;
 -(void) add:(float)f atDegree:(int)d;
--(NSString *) side:(NSMutableArray *)s;
+-(NSMutableString *) side:(NSMutableArray *)s;
 
 
 @end
