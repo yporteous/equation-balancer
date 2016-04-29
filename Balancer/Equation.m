@@ -30,10 +30,10 @@ BOOL isInt(NSNumber *num) {
 	if (self = [super init]) {
 		self.l = [[NSMutableArray alloc] init];
 		self.r = [[NSMutableArray alloc] init];
-		[self.l addObject:@(4.0)];
-		[self.l addObject:@(3.0)];
-		[self.r addObject:@(19.0)];
-		[self.r addObject:@(-2.0)];
+		[self.l addObject:@(1.0)];
+		[self.l addObject:@(2.0)];
+		[self.r addObject:@(0.0)];
+		[self.r addObject:@(0.0)];
 	}
 	return self;
 }
@@ -41,11 +41,14 @@ BOOL isInt(NSNumber *num) {
 
 -(void) scale:(double)f {
 	for (int i = 0; i < [l count]; i++) {
-		[self.l replaceObjectAtIndex:i withObject:@(f * [[self.l objectAtIndex:i] doubleValue])];
+		double rep = f * [[self.l objectAtIndex:i] doubleValue];
+//		NSNumber *replaceWith = ((isInt(@(rep))) ? @((int)rep) : @(rep));
+		[self.l replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];
 	}
 	
 	for (int i = 0; i < [r count]; i++) {
-		[self.r replaceObjectAtIndex:i withObject:@(f * [[self.r objectAtIndex:i] doubleValue])];
+		double rep = f * [[self.r objectAtIndex:i] doubleValue];
+		[self.r replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];
 	}
 	
 }
@@ -69,7 +72,7 @@ BOOL isInt(NSNumber *num) {
 			else {
 				(isInt([sd objectAtIndex:i])) ?
 				[res appendFormat:@"%ix^%li + ", (int)[[sd objectAtIndex:i] integerValue], i] :
-				[res appendFormat:@"%fx^%li + ", (double)[[sd objectAtIndex:i] doubleValue], i];
+				[res appendFormat:@"%.02fx^%li + ", (double)[[sd objectAtIndex:i] doubleValue], i];
 			}
 		}
 	}
@@ -85,7 +88,7 @@ BOOL isInt(NSNumber *num) {
 			else {
 				(isInt([sd objectAtIndex:1])) ?
 				[res appendFormat:@"%ix + ", (int)[[sd objectAtIndex:1] integerValue]] :
-				[res appendFormat:@"%fx + ", (double)[[sd objectAtIndex:1] doubleValue]];
+				[res appendFormat:@"%.02fx + ", (double)[[sd objectAtIndex:1] doubleValue]];
 			}
 		}
 	}
@@ -95,7 +98,7 @@ BOOL isInt(NSNumber *num) {
 			[res appendFormat:@"%i + ", (int)[[sd objectAtIndex:0] integerValue]];
 		}
 		else {
-			[res appendFormat:@"%fx + ", (double)[[sd objectAtIndex:0] doubleValue]];
+			[res appendFormat:@"%.02f + ", (double)[[sd objectAtIndex:0] doubleValue]];
 		}
 	}
 	

@@ -22,6 +22,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	
 	eqn = [[Equation alloc] init];
+	scaleFactor = 1;
 	[equationLabel setText:[eqn bothSides]];
 }
 
