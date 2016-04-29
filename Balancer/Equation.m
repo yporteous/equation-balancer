@@ -30,10 +30,10 @@ BOOL isInt(NSNumber *num) {
 	if (self = [super init]) {
 		self.l = [[NSMutableArray alloc] init];
 		self.r = [[NSMutableArray alloc] init];
-		[self.l addObject:@(1.0)];
-		[self.l addObject:@(1.0)];
-		[self.r addObject:@(1.0)];
-		[self.r addObject:@(1.0)];
+		[self.l addObject:@(4.0)];
+		[self.l addObject:@(3.0)];
+		[self.r addObject:@(19.0)];
+		[self.r addObject:@(-2.0)];
 	}
 	return self;
 }
@@ -111,7 +111,7 @@ BOOL isInt(NSNumber *num) {
 }
 
 -(NSString *) bothSides {
-	return [NSString stringWithFormat:@"%@ = %@", [self side:[self l]], [self side:[self l]]];
+	return [NSString stringWithFormat:@"%@ = %@", [self side:[self l]], [self side:[self r]]];
 }
 
 
