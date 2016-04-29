@@ -16,7 +16,7 @@
 -(id) init;										//inits with lhs = rhs = 0
 
 -(void) scale:(double)f;						//scales both sides by factor f
--(void) add:(double)f atDegree:(int)d;			//adds a factor of f*x^d
+-(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both;		//adds a factor of f*x^d to left or both sides
 -(NSMutableString *) side:(NSMutableArray *)s;	//creates a string of one side for printing
 -(NSString *) bothSides;						//creates final string
 

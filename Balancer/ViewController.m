@@ -15,7 +15,7 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel, scaleFactorLabel, scaleFactor;
+@synthesize equationLabel, scaleFactorLabel, scaleFactor, setFlag;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -23,6 +23,7 @@
 	
 	eqn = [[Equation alloc] init];
 	scaleFactor = 1;
+	setFlag = TRUE;
 	[equationLabel setText:[eqn bothSides]];
 }
 
@@ -34,22 +35,22 @@
 
 
 -(IBAction)addX {
-	[eqn add:1.0 atDegree:1];
+	[eqn add:1.0 atDegree:1 toBoth:setFlag];
 	equationLabel.text = [eqn bothSides];
 }
 
 -(IBAction)subX {
-	[eqn add:-1.0 atDegree:1];
+	[eqn add:-1.0 atDegree:1 toBoth:setFlag];
 	equationLabel.text = [eqn bothSides];
 }
 
 -(IBAction)addOne {
-	[eqn add:1.0 atDegree:0];
+	[eqn add:1.0 atDegree:0 toBoth:setFlag];
 	equationLabel.text = [eqn bothSides];
 }
 
 -(IBAction)subOne {
-	[eqn add:-1.0 atDegree:0];
+	[eqn add:-1.0 atDegree:0 toBoth:setFlag];
 	equationLabel.text = [eqn bothSides];
 }
 
@@ -69,5 +70,14 @@
 	scaleFactorLabel.text = [NSString stringWithFormat:@"%.0f", val];
 	scaleFactor = val;
 }
+
+-(IBAction)setting:(UISwitch *)sender {
+	setFlag = sender.on;
+}
+
+
+
+
+
 
 @end

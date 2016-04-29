@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *equationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scaleFactorLabel;
 @property double scaleFactor;
+@property BOOL setFlag;
 
 @property Equation *eqn;
 
@@ -23,6 +24,7 @@
 -(IBAction)mult;
 -(IBAction)div;
 -(IBAction)step:(UIStepper *)sender;
+-(IBAction)setting:(UISwitch *)sender;
 
 @end
 

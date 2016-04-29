@@ -30,8 +30,8 @@ BOOL isInt(NSNumber *num) {
 	if (self = [super init]) {
 		self.l = [[NSMutableArray alloc] init];
 		self.r = [[NSMutableArray alloc] init];
+		[self.l addObject:@(0.0)];
 		[self.l addObject:@(1.0)];
-		[self.l addObject:@(2.0)];
 		[self.r addObject:@(0.0)];
 		[self.r addObject:@(0.0)];
 	}
@@ -53,9 +53,11 @@ BOOL isInt(NSNumber *num) {
 	
 }
 
--(void) add:(double)f atDegree:(int)d {
+-(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both {
 	[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
-	[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
+	if (both) {
+		[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
+	}
 }
 
 -(NSMutableString *) side:(NSMutableArray *)sd {
