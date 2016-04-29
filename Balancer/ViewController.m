@@ -15,34 +15,22 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel;
-//Equation* eqn = [[Equation alloc] initZero];
+@synthesize equationLabel, scaleFactorLabel, scaleFactor;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//	equationLabel.text = [eqn side:eqn.l];
-//	[equationLabel setText:[eqn side:eqn.l]];
+	
 	eqn = [[Equation alloc] init];
-	NSLog(@"View Loaded");
-	
-	/*
-	NSString *lhs = [eqn side:[eqn l]];
-	NSString *rhs = [eqn side:[eqn r]];
-	
-	NSString *both = [NSString stringWithFormat:@"%@ = %@", lhs, rhs];
-	
-	[equationLabel setText:both];
-	// */
-	
 	[equationLabel setText:[eqn bothSides]];
-	
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
 }
+
+
 
 -(IBAction)addX {
 	[eqn add:1.0 atDegree:1];
@@ -62,6 +50,23 @@
 -(IBAction)subOne {
 	[eqn add:-1.0 atDegree:0];
 	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)mult {
+	[eqn scale:self.scaleFactor];
+	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)div {
+	[eqn scale:(1.0/self.scaleFactor)];
+	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)step:(UIStepper *)sender {
+	double val = sender.value;
+	
+	scaleFactorLabel.text = [NSString stringWithFormat:@"%.0f", val];
+	scaleFactor = val;
 }
 
 @end

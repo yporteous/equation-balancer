@@ -11,9 +11,18 @@
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *equationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scaleFactorLabel;
+@property double scaleFactor;
+
 @property Equation *eqn;
 
 -(IBAction)addX;
+-(IBAction)subX;
+-(IBAction)addOne;
+-(IBAction)subOne;
+-(IBAction)mult;
+-(IBAction)div;
+-(IBAction)step:(UIStepper *)sender;
 
 @end
 
