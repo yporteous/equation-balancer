@@ -26,8 +26,10 @@ BOOL isInt(NSNumber *num) {
 
 
 -(id) init {
-	self = [super init];
-	if (self) {
+//	self ;
+	if (self = [super init]) {
+		self.l = [[NSMutableArray alloc] init];
+		self.r = [[NSMutableArray alloc] init];
 		[self.l addObject:@(1.0)];
 		[self.l addObject:@(1.0)];
 		[self.r addObject:@(1.0)];
@@ -49,18 +51,20 @@ BOOL isInt(NSNumber *num) {
 }
 
 -(void) add:(double)f atDegree:(int)d {
-	[self.l replaceObjectAtIndex:d withObject:@(d + [[self.l objectAtIndex:d] doubleValue])];
-	[self.r replaceObjectAtIndex:d withObject:@(d + [[self.r objectAtIndex:d] doubleValue])];
+	[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
+	[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
 }
 
 -(NSMutableString *) side:(NSMutableArray *)sd {
 	NSMutableString *res = [[NSMutableString alloc] initWithCapacity:10];
-	
-	for (long i = [sd count] - 1; i > 1; i--) {
 		
+	for (long i = [sd count] - 1; i > 1; i--) {
 		if ([[sd objectAtIndex:i] doubleValue] != 0.0) {
 			if ([[sd objectAtIndex:i] doubleValue] == 1.0) {
 				[res appendFormat:@"x^%li + ", i];
+			}
+			else if ([[sd objectAtIndex:i] doubleValue] == -1.0) {
+				[res appendFormat:@"-x^%li + ", i];
 			}
 			else {
 				(isInt([sd objectAtIndex:i])) ?
@@ -71,10 +75,12 @@ BOOL isInt(NSNumber *num) {
 	}
 	
 	if ([sd count] > 1) {
-		
 		if ([[sd objectAtIndex:1] doubleValue] != 0.0) {
 			if ([[sd objectAtIndex:1] doubleValue] == 1.0) {
 				[res appendString:@"x + "];
+			}
+			else if ([[sd objectAtIndex:1] doubleValue] == -1.0) {
+				[res appendString:@"-x + "];
 			}
 			else {
 				(isInt([sd objectAtIndex:1])) ?
@@ -93,20 +99,19 @@ BOOL isInt(NSNumber *num) {
 		}
 	}
 	
-	//	NSLog(@"Length is %li", res.length);
-	//*
 	if ([res length] == 0) {
 		[res setString:@"0"];
 	}
 	else {
 		[res deleteCharactersInRange:NSMakeRange([res length]-3, 3)];
 	}
-	
-	// */
-	
-	NSLog(@"side is: %@", res);
+//	NSLog(@"Final string is %@.", res);
 	
 	return res;
+}
+
+-(NSString *) bothSides {
+	return [NSString stringWithFormat:@"%@ = %@", [self side:[self l]], [self side:[self l]]];
 }
 
 

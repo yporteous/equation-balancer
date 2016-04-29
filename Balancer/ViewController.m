@@ -23,8 +23,20 @@
 	// Do any additional setup after loading the view, typically from a nib.
 //	equationLabel.text = [eqn side:eqn.l];
 //	[equationLabel setText:[eqn side:eqn.l]];
+	eqn = [[Equation alloc] init];
 	NSLog(@"View Loaded");
-	NSLog(@"%@", [eqn side:[eqn l]]);
+	
+	/*
+	NSString *lhs = [eqn side:[eqn l]];
+	NSString *rhs = [eqn side:[eqn r]];
+	
+	NSString *both = [NSString stringWithFormat:@"%@ = %@", lhs, rhs];
+	
+	[equationLabel setText:both];
+	// */
+	
+	[equationLabel setText:[eqn bothSides]];
+	
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,8 +45,23 @@
 }
 
 -(IBAction)addX {
-//	[eqn add:1.0 atDegree:1];
-//	equationLabel.text = [eqn side:eqn.l];
+	[eqn add:1.0 atDegree:1];
+	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)subX {
+	[eqn add:-1.0 atDegree:1];
+	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)addOne {
+	[eqn add:1.0 atDegree:0];
+	equationLabel.text = [eqn bothSides];
+}
+
+-(IBAction)subOne {
+	[eqn add:-1.0 atDegree:0];
+	equationLabel.text = [eqn bothSides];
 }
 
 @end

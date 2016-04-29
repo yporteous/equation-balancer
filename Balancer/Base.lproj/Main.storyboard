@@ -18,17 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us5-Oh-fQS">
-                                <rect key="frame" x="320" y="271" width="128" height="64"/>
+                                <rect key="frame" x="184" y="227" width="400" height="64"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-LO-bnB">
-                                <rect key="frame" x="348" y="419" width="72" height="40"/>
+                                <rect key="frame" x="448" y="360" width="72" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Add x"/>
+                                <state key="normal" title="+x"/>
                                 <connections>
                                     <action selector="addX" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2I-Ql-ZIV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-fd-sah">
+                                <rect key="frame" x="241" y="360" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="+1"/>
+                                <connections>
+                                    <action selector="addOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="D5a-1e-d1f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Fk-Wyw">
+                                <rect key="frame" x="241" y="408" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="-1"/>
+                                <connections>
+                                    <action selector="subOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="vir-cH-Z7v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-xr-sYr">
+                                <rect key="frame" x="448" y="408" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="-x"/>
+                                <connections>
+                                    <action selector="subX" destination="BYZ-38-t0r" eventType="touchUpInside" id="whp-L0-R5l"/>
                                 </connections>
                             </button>
                         </subviews>
