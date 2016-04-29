@@ -25,6 +25,7 @@
 -(IBAction)div;
 -(IBAction)step:(UIStepper *)sender;
 -(IBAction)setting:(UISwitch *)sender;
+-(IBAction)reset;
 
 @end
 

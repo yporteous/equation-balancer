@@ -54,10 +54,10 @@ BOOL isInt(NSNumber *num) {
 }
 
 -(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both {
-	[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
 	if (both) {
-		[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
+		[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
 	}
+	[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
 }
 
 -(NSMutableString *) side:(NSMutableArray *)sd {

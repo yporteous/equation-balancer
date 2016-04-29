@@ -75,7 +75,17 @@
 	setFlag = sender.on;
 }
 
-
+-(IBAction)reset {
+	if (!setFlag) {
+		[eqn.l removeAllObjects];
+		[eqn.r removeAllObjects];
+		[eqn.l addObject:@(0.0)];
+		[eqn.l addObject:@(1.0)];
+		[eqn.r addObject:@(1.0)];
+		[eqn.r addObject:@(0.0)];
+		equationLabel.text = [eqn bothSides];
+	}
+}
 
 
 
