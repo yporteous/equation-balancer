@@ -32,7 +32,7 @@ BOOL isInt(NSNumber *num) {
 		self.r = [[NSMutableArray alloc] init];
 		[self.l addObject:@(0.0)];
 		[self.l addObject:@(1.0)];
-		[self.r addObject:@(0.0)];
+		[self.r addObject:@(1.0)];
 		[self.r addObject:@(0.0)];
 	}
 	return self;
@@ -110,6 +110,9 @@ BOOL isInt(NSNumber *num) {
 	else {
 		[res deleteCharactersInRange:NSMakeRange([res length]-3, 3)];
 	}
+	
+	[res replaceOccurrencesOfString:@"+ -" withString:@"- " options:NSLiteralSearch range:NSMakeRange(0, [res length])];
+	
 //	NSLog(@"Final string is %@.", res);
 	
 	return res;
