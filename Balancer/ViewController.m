@@ -15,7 +15,7 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel, scaleFactorLabel, scaleFactor, setFlag, plsXN, minXN, plsX1, minX1, plus1, minus1;
+@synthesize equationLabel, scaleFactorLabel, indexLabel, scaleFactor, index, setFlag, plsXN, minXN, plsX1, minX1, plus1, minus1;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -23,6 +23,7 @@
 	
 	eqn = [[Equation alloc] init];
 	scaleFactor = 1;
+	index = 1;
 	setFlag = TRUE;
 	equationLabel.attributedText = [eqn bothSides];
 	
@@ -55,8 +56,6 @@
 	
 	NSMutableAttributedString *m1 = [[NSMutableAttributedString alloc] initWithString:@"–1" attributes:@{NSFontAttributeName: fontNormal}];
 	[minus1 setAttributedTitle:m1 forState:UIControlStateNormal];
-	
-	
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +85,16 @@
 	equationLabel.attributedText = [eqn bothSides];
 }
 
+-(IBAction)addXN {
+	[eqn add:1.0 atDegree:self.index toBoth:setFlag];
+	equationLabel.attributedText = [eqn bothSides];
+}
+
+-(IBAction)subXN {
+	[eqn add:-1.0 atDegree:self.index toBoth:setFlag];
+	equationLabel.attributedText = [eqn bothSides];
+}
+
 -(IBAction)mult {
 	[eqn scale:self.scaleFactor];
 	equationLabel.attributedText = [eqn bothSides];
@@ -101,6 +110,13 @@
 	
 	scaleFactorLabel.text = [NSString stringWithFormat:@"%.0f", val];
 	scaleFactor = val;
+}
+
+-(IBAction)changeIndex:(UIStepper *)sender {
+	double val = sender.value;
+	
+	indexLabel.text = [NSString stringWithFormat:@"%.0f", val];
+	index = (int) val;
 }
 
 -(IBAction)setting:(UISwitch *)sender {
@@ -119,7 +135,17 @@
 	}
 }
 
+-(IBAction)swapSides {
+	NSMutableArray *hold = eqn.l;
+	eqn.l = eqn.r;
+	eqn.r = hold;
+	equationLabel.attributedText = [eqn bothSides];
+}
 
+-(IBAction)negate {
+	[eqn scale:-1.0];
+	equationLabel.attributedText = [eqn bothSides];
+}
 
 
 @end

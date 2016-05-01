@@ -12,7 +12,9 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *equationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scaleFactorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *indexLabel;
 @property double scaleFactor;
+@property int index;
 @property BOOL setFlag;
 @property IBOutlet UIButton *plsXN;
 @property IBOutlet UIButton *minXN;
@@ -27,11 +29,16 @@
 -(IBAction)subX;
 -(IBAction)addOne;
 -(IBAction)subOne;
+-(IBAction)addXN;
+-(IBAction)subXN;
 -(IBAction)mult;
 -(IBAction)div;
 -(IBAction)step:(UIStepper *)sender;
+-(IBAction)changeIndex:(UIStepper *)sender;
 -(IBAction)setting:(UISwitch *)sender;
 -(IBAction)reset;
+-(IBAction)swapSides;
+-(IBAction)negate;
 
 @end
 

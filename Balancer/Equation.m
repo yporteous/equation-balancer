@@ -54,6 +54,15 @@ BOOL isInt(NSNumber *num) {
 }
 
 -(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both {
+	
+	while ([self.l count] - 1 < d) {
+		[self.l addObject:@(0.0)];
+	}
+	
+	while ([self.r count] - 1 < d) {
+		[self.r addObject:@(0.0)];
+	}
+	
 	if (both) {
 		[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
 	}
@@ -62,6 +71,10 @@ BOOL isInt(NSNumber *num) {
 
 -(NSMutableAttributedString *) side:(NSMutableArray *)sd {
 	NSMutableString *res = [[NSMutableString alloc] initWithCapacity:10];
+	
+	UIFont *font = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
+	
+	NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:res attributes:@{NSFontAttributeName: font}];
 	
 	for (long i = [sd count] - 1; i > 1; i--) {
 		if ([[sd objectAtIndex:i] doubleValue] != 0.0) {
@@ -113,10 +126,6 @@ BOOL isInt(NSNumber *num) {
 	
 	[res replaceOccurrencesOfString:@"+ -" withString:@"- " options:NSLiteralSearch range:NSMakeRange(0, [res length])];
 	[res replaceOccurrencesOfString:@"-" withString:@"–" options:NSLiteralSearch range:NSMakeRange(0, [res length])];
-	
-	UIFont *font = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
-	
-	NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:res attributes:@{NSFontAttributeName: font}];
 	
 	[attr setAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Italic" size:20]} range:[attr.mutableString rangeOfString:@"x"]];
 	
