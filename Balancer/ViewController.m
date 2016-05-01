@@ -46,6 +46,16 @@
 	[pX setAttributes:@{NSFontAttributeName : fontItalic} range:[pX.mutableString rangeOfString:@"x"]];
 	[plsX1 setAttributedTitle:pX forState:UIControlStateNormal];
 	
+	NSMutableAttributedString *mX = [[NSMutableAttributedString alloc] initWithString:@"–x" attributes:@{NSFontAttributeName: fontNormal}];
+	[mX setAttributes:@{NSFontAttributeName : fontItalic} range:[mX.mutableString rangeOfString:@"x"]];
+	[minX1 setAttributedTitle:mX forState:UIControlStateNormal];
+	
+	NSMutableAttributedString *p1 = [[NSMutableAttributedString alloc] initWithString:@"+1" attributes:@{NSFontAttributeName: fontNormal}];
+	[plus1 setAttributedTitle:p1 forState:UIControlStateNormal];
+	
+	NSMutableAttributedString *m1 = [[NSMutableAttributedString alloc] initWithString:@"–1" attributes:@{NSFontAttributeName: fontNormal}];
+	[minus1 setAttributedTitle:m1 forState:UIControlStateNormal];
+	
 	
 }
 
