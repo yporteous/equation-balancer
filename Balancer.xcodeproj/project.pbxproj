@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81FC3D91CD5611300B15243 /* cmunrm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D81FC3D71CD5611300B15243 /* cmunrm.ttf */; };
+		D81FC3DA1CD5611300B15243 /* cmunti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D81FC3D81CD5611300B15243 /* cmunti.ttf */; };
 		D85D56671CD240FE00150216 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D56661CD240FE00150216 /* main.m */; };
 		D85D566A1CD240FE00150216 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D56691CD240FE00150216 /* AppDelegate.m */; };
 		D85D566D1CD240FE00150216 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D566C1CD240FE00150216 /* ViewController.m */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D81FC3D71CD5611300B15243 /* cmunrm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cmunrm.ttf; sourceTree = "<group>"; };
+		D81FC3D81CD5611300B15243 /* cmunti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cmunti.ttf; sourceTree = "<group>"; };
 		D85D56621CD240FE00150216 /* Balancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85D56661CD240FE00150216 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D85D56681CD240FE00150216 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D81FC3DB1CD5611A00B15243 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D81FC3D71CD5611300B15243 /* cmunrm.ttf */,
+				D81FC3D81CD5611300B15243 /* cmunti.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		D85D56591CD240FE00150216 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +127,7 @@
 				D85D56711CD240FE00150216 /* Assets.xcassets */,
 				D85D56731CD240FE00150216 /* LaunchScreen.storyboard */,
 				D85D56761CD240FE00150216 /* Info.plist */,
+				D81FC3DB1CD5611A00B15243 /* Fonts */,
 				D85D56651CD240FE00150216 /* Supporting Files */,
 			);
 			path = Balancer;
@@ -249,6 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81FC3D91CD5611300B15243 /* cmunrm.ttf in Resources */,
+				D81FC3DA1CD5611300B15243 /* cmunti.ttf in Resources */,
 				D85D56751CD240FE00150216 /* LaunchScreen.storyboard in Resources */,
 				D85D56721CD240FE00150216 /* Assets.xcassets in Resources */,
 				D85D56701CD240FE00150216 /* Main.storyboard in Resources */,

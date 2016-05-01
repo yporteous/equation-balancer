@@ -24,7 +24,7 @@
 	eqn = [[Equation alloc] init];
 	scaleFactor = 1;
 	setFlag = TRUE;
-	[equationLabel setText:[eqn bothSides]];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,32 +36,32 @@
 
 -(IBAction)addX {
 	[eqn add:1.0 atDegree:1 toBoth:setFlag];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)subX {
 	[eqn add:-1.0 atDegree:1 toBoth:setFlag];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)addOne {
 	[eqn add:1.0 atDegree:0 toBoth:setFlag];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)subOne {
 	[eqn add:-1.0 atDegree:0 toBoth:setFlag];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)mult {
 	[eqn scale:self.scaleFactor];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)div {
 	[eqn scale:(1.0/self.scaleFactor)];
-	equationLabel.text = [eqn bothSides];
+	equationLabel.attributedText = [eqn bothSides];
 }
 
 -(IBAction)step:(UIStepper *)sender {
@@ -83,7 +83,7 @@
 		[eqn.l addObject:@(1.0)];
 		[eqn.r addObject:@(1.0)];
 		[eqn.r addObject:@(0.0)];
-		equationLabel.text = [eqn bothSides];
+		equationLabel.attributedText = [eqn bothSides];
 	}
 }
 

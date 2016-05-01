@@ -60,9 +60,9 @@ BOOL isInt(NSNumber *num) {
 	[self.r replaceObjectAtIndex:d withObject:@(f + [[self.r objectAtIndex:d] doubleValue])];
 }
 
--(NSMutableString *) side:(NSMutableArray *)sd {
+-(NSMutableAttributedString *) side:(NSMutableArray *)sd {
 	NSMutableString *res = [[NSMutableString alloc] initWithCapacity:10];
-		
+	
 	for (long i = [sd count] - 1; i > 1; i--) {
 		if ([[sd objectAtIndex:i] doubleValue] != 0.0) {
 			if ([[sd objectAtIndex:i] doubleValue] == 1.0) {
@@ -113,13 +113,23 @@ BOOL isInt(NSNumber *num) {
 	
 	[res replaceOccurrencesOfString:@"+ -" withString:@"- " options:NSLiteralSearch range:NSMakeRange(0, [res length])];
 	
+	UIFont *font = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
+	
+	NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:res attributes:@{NSFontAttributeName: font}];
+	
+	[attr setAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Italic" size:20]} range:[attr.mutableString rangeOfString:@"x"]];
+	
 //	NSLog(@"Final string is %@.", res);
 	
-	return res;
+	return attr;
 }
 
--(NSString *) bothSides {
-	return [NSString stringWithFormat:@"%@ = %@", [self side:[self l]], [self side:[self r]]];
+-(NSMutableAttributedString *) bothSides {
+	NSMutableAttributedString *sides = [self side:self.l];
+	NSAttributedString *equality = [[NSAttributedString alloc] initWithString:@" = " attributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Roman" size:20]}];
+	[sides appendAttributedString:equality];
+	[sides appendAttributedString:[self side:self.r]];
+	return sides;
 }
 
 
