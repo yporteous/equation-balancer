@@ -15,7 +15,7 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel, scaleFactorLabel, scaleFactor, setFlag;
+@synthesize equationLabel, scaleFactorLabel, scaleFactor, setFlag, plsXN, minXN, plsX1, minX1, plus1, minus1;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -25,6 +25,28 @@
 	scaleFactor = 1;
 	setFlag = TRUE;
 	equationLabel.attributedText = [eqn bothSides];
+	
+	UIFont *fontNormal = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
+	UIFont *fontItalic = [UIFont fontWithName:@"CMUSerif-Italic" size:20];
+//	UIFont *fontSupRom = [UIFont fontWithName:@"CMUSerif-Roman" size:14];
+	UIFont *fontSupItl = [UIFont fontWithName:@"CMUSerif-Italic" size:14];
+	
+	NSMutableAttributedString *plusPow = [[NSMutableAttributedString alloc] initWithString:@"+xn" attributes:@{NSFontAttributeName: fontNormal}];
+	[plusPow setAttributes:@{NSFontAttributeName : fontItalic} range:[plusPow.mutableString rangeOfString:@"x"]];
+	[plusPow setAttributes:@{NSFontAttributeName : fontSupItl, NSBaselineOffsetAttributeName : @8} range:[plusPow.mutableString rangeOfString:@"n"]];
+	[plsXN setAttributedTitle:plusPow forState:UIControlStateNormal];
+	
+	NSMutableAttributedString *minPow = [[NSMutableAttributedString alloc] initWithString:@"–xn" attributes:@{NSFontAttributeName: fontNormal}];
+	[minPow setAttributes:@{NSFontAttributeName : fontItalic} range:[minPow.mutableString rangeOfString:@"x"]];
+	[minPow setAttributes:@{NSFontAttributeName : fontSupItl, NSBaselineOffsetAttributeName : @8} range:[minPow.mutableString rangeOfString:@"n"]];
+	[minXN setAttributedTitle:minPow forState:UIControlStateNormal];
+	
+	
+	NSMutableAttributedString *pX = [[NSMutableAttributedString alloc] initWithString:@"+x" attributes:@{NSFontAttributeName: fontNormal}];
+	[pX setAttributes:@{NSFontAttributeName : fontItalic} range:[pX.mutableString rangeOfString:@"x"]];
+	[plsX1 setAttributedTitle:pX forState:UIControlStateNormal];
+	
+	
 }
 
 - (void)didReceiveMemoryWarning {

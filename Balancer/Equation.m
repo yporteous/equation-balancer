@@ -112,6 +112,7 @@ BOOL isInt(NSNumber *num) {
 	}
 	
 	[res replaceOccurrencesOfString:@"+ -" withString:@"- " options:NSLiteralSearch range:NSMakeRange(0, [res length])];
+	[res replaceOccurrencesOfString:@"-" withString:@"–" options:NSLiteralSearch range:NSMakeRange(0, [res length])];
 	
 	UIFont *font = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
 	

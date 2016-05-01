@@ -18,71 +18,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us5-Oh-fQS">
-                                <rect key="frame" x="184" y="227" width="400" height="64"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="20" y="227" width="728" height="64"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-LO-bnB">
-                                <rect key="frame" x="441" y="360" width="72" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="441" y="408" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="+x"/>
                                 <connections>
                                     <action selector="addX" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2I-Ql-ZIV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-xr-sYr">
-                                <rect key="frame" x="256" y="360" width="72" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="256" y="408" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="-x"/>
                                 <connections>
                                     <action selector="subX" destination="BYZ-38-t0r" eventType="touchUpInside" id="whp-L0-R5l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-fd-sah">
-                                <rect key="frame" x="441" y="408" width="72" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="441" y="360" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="+1"/>
                                 <connections>
                                     <action selector="addOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="D5a-1e-d1f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Fk-Wyw">
-                                <rect key="frame" x="256" y="408" width="72" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="256" y="360" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="-1"/>
                                 <connections>
                                     <action selector="subOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="vir-cH-Z7v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXa-Qw-VRM">
-                                <rect key="frame" x="441" y="469" width="30" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="×"/>
-                                <connections>
-                                    <action selector="mult" destination="BYZ-38-t0r" eventType="touchUpInside" id="jID-f3-wQd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-Th-daK">
-                                <rect key="frame" x="298" y="471" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="÷"/>
-                                <connections>
-                                    <action selector="div" destination="BYZ-38-t0r" eventType="touchUpInside" id="16f-tm-OXL"/>
-                                </connections>
-                            </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-dp-afE">
-                                <rect key="frame" x="337" y="504" width="94" height="29"/>
-                                <connections>
-                                    <action selector="step:" destination="BYZ-38-t0r" eventType="valueChanged" id="hli-yC-GEM"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-ta-Ie1">
-                                <rect key="frame" x="363" y="475" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Solve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKw-Y6-esF">
                                 <rect key="frame" x="20" y="990" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -104,12 +76,65 @@
                                     <action selector="reset" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jd2-m1-1Pi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pl-qZ-ADB">
+                                <rect key="frame" x="441" y="456" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="+x^n"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDI-Pm-1Cq">
+                                <rect key="frame" x="256" y="456" width="72" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="-x^n"/>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="z3F-qc-OjV">
+                                <rect key="frame" x="337" y="485" width="94" height="29"/>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmA-X2-NgI">
+                                <rect key="frame" x="363" y="456" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXa-Qw-VRM">
+                                <rect key="frame" x="441" y="522" width="30" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="×"/>
+                                <connections>
+                                    <action selector="mult" destination="BYZ-38-t0r" eventType="touchUpInside" id="jID-f3-wQd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-Th-daK">
+                                <rect key="frame" x="298" y="524" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="÷"/>
+                                <connections>
+                                    <action selector="div" destination="BYZ-38-t0r" eventType="touchUpInside" id="16f-tm-OXL"/>
+                                </connections>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-dp-afE">
+                                <rect key="frame" x="337" y="557" width="94" height="29"/>
+                                <connections>
+                                    <action selector="step:" destination="BYZ-38-t0r" eventType="valueChanged" id="hli-yC-GEM"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vx-ta-Ie1">
+                                <rect key="frame" x="363" y="528" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="equationLabel" destination="Us5-Oh-fQS" id="KSJ-ah-CxG"/>
+                        <outlet property="minX1" destination="hcQ-xr-sYr" id="mgf-sF-RYE"/>
+                        <outlet property="minXN" destination="VDI-Pm-1Cq" id="Ba8-id-VwW"/>
+                        <outlet property="minus1" destination="lqe-Fk-Wyw" id="X8Y-eZ-r6D"/>
+                        <outlet property="plsX1" destination="pcC-LO-bnB" id="3CU-Dt-OSQ"/>
+                        <outlet property="plsXN" destination="3pl-qZ-ADB" id="V2y-dw-h1a"/>
+                        <outlet property="plus1" destination="Gew-fd-sah" id="gqS-kW-OFg"/>
                         <outlet property="scaleFactorLabel" destination="6vx-ta-Ie1" id="moX-J9-cfz"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *scaleFactorLabel;
 @property double scaleFactor;
 @property BOOL setFlag;
+@property IBOutlet UIButton *plsXN;
+@property IBOutlet UIButton *minXN;
+@property IBOutlet UIButton *plsX1;
+@property IBOutlet UIButton *minX1;
+@property IBOutlet UIButton *plus1;
+@property IBOutlet UIButton *minus1;
 
 @property Equation *eqn;
 
