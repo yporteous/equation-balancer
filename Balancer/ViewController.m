@@ -143,7 +143,7 @@
 }
 
 -(IBAction)negate {
-	[eqn scale:-1.0];
+	[eqn scale:(-1.0)];
 	equationLabel.attributedText = [eqn bothSides];
 }
 

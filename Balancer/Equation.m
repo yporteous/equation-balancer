@@ -20,9 +20,6 @@ BOOL isInt(NSNumber *num) {
 	}
 }
 
-
-
-
 @implementation Equation
 
 @synthesize l,r;
@@ -203,15 +200,15 @@ BOOL isInt(NSNumber *num) {
 			[attr appendAttributedString: [concat objectAtIndex:i]];	// append item
 			
 			if (i < concat.count - 1) {												// if there are still items...
-				NSLog(@"%@", [[[concat objectAtIndex:i-1] string] class]);
+				NSLog(@"%@", [[[concat objectAtIndex:i+1] string] class]);
 				
-				unichar ch = [[[concat objectAtIndex:i-1] string] characterAtIndex:0];	//check first character of next item
+				unichar ch = [[[concat objectAtIndex:i+1] string] characterAtIndex:0];	//check first character of next item
 				NSLog(@"%c", ch);
-				
+				NSLog(@"HERE??");
 				//*
 				if (ch == '-') {										// if it's '-'
 					[attr appendAttributedString:minus];				// append subtraction string
-					[[concat objectAtIndex:i-1] deleteCharactersInRange:NSMakeRange(0, 1)];		//remove -ve from next item
+					[[concat objectAtIndex:i+1] deleteCharactersInRange:NSMakeRange(0, 1)];		//remove -ve from next item
 				}
 				else {
 					[attr appendAttributedString:plus];					// otherwise, it's '+'
