@@ -18,6 +18,7 @@
 		D85D56801CD240FE00150216 /* BalancerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D567F1CD240FE00150216 /* BalancerTests.m */; };
 		D85D568B1CD240FE00150216 /* BalancerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D568A1CD240FE00150216 /* BalancerUITests.m */; };
 		D85D569A1CD2412D00150216 /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D56991CD2412D00150216 /* Equation.m */; };
+		D8DF382B1CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DF382A1CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		D85D568C1CD240FE00150216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85D56981CD2412D00150216 /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equation.h; sourceTree = "<group>"; };
 		D85D56991CD2412D00150216 /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equation.m; sourceTree = "<group>"; };
+		D8DF38291CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+NSMutableString_AttributeConversion.h"; sourceTree = "<group>"; };
+		D8DF382A1CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+NSMutableString_AttributeConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				D85D56691CD240FE00150216 /* AppDelegate.m */,
 				D85D56981CD2412D00150216 /* Equation.h */,
 				D85D56991CD2412D00150216 /* Equation.m */,
+				D8DF38291CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.h */,
+				D8DF382A1CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.m */,
 				D85D566B1CD240FE00150216 /* ViewController.h */,
 				D85D566C1CD240FE00150216 /* ViewController.m */,
 				D85D566E1CD240FE00150216 /* Main.storyboard */,
@@ -294,6 +299,7 @@
 			files = (
 				D85D566D1CD240FE00150216 /* ViewController.m in Sources */,
 				D85D566A1CD240FE00150216 /* AppDelegate.m in Sources */,
+				D8DF382B1CD8DE10009AA0B5 /* NSMutableString+NSMutableString_AttributeConversion.m in Sources */,
 				D85D56671CD240FE00150216 /* main.m in Sources */,
 				D85D569A1CD2412D00150216 /* Equation.m in Sources */,
 			);
