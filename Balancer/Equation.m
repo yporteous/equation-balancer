@@ -86,7 +86,7 @@ BOOL isInt(NSNumber *num) {
 	// All terms except x^1, x^0
 	for (long i = [sd count] - 1; i > 1; i--) {
 		if ([[sd objectAtIndex:i] doubleValue] != 0.0) {			//if term has non-zero coefficient
-												//clear temp
+			[temp setString:@""];									//clear temp
 			if ([[sd objectAtIndex:i] doubleValue] == 1.0) {
 				[temp appendFormat:@"x%li", i];					//do not print coefficient if == 1
 			}
@@ -111,6 +111,7 @@ BOOL isInt(NSNumber *num) {
 			//if index exists (ie if there's a character after the x, again should be as this is x^n, n>1), make it superscript
 			if (indexLoc.location != NSNotFound && indexLoc.location < term.mutableString.length - 1) {
 				indexLoc.location++;
+				indexLoc.length = [term.mutableString length] - indexLoc.location;
 				[term setAttributes:@{NSFontAttributeName : fontSupRom, NSBaselineOffsetAttributeName : @8} range:indexLoc];
 			}
 			
