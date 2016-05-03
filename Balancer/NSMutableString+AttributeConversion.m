@@ -6,7 +6,7 @@
 //  Copyright © 2016 Younus Porteous. All rights reserved.
 //
 
-#import "NSMutableString+NSMutableString_AttributeConversion.h"
+#import "NSMutableString+AttributeConversion.h"
 
 @implementation NSMutableString (NSMutableString_AttributeConversion)
 

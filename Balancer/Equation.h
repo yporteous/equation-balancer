@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "NSMutableString+AttributeConversion.h"
 
 @interface Equation : NSObject
 

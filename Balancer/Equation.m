@@ -8,7 +8,7 @@
 
 #import "Equation.h"
 //#import "NumberTests.m"
-#import "NSMutableString+NSMutableString_AttributeConversion.h"
+
 
 BOOL isInt(NSNumber *num) {
 	double dVal = [num doubleValue];
