@@ -81,7 +81,7 @@ BOOL isInt(NSNumber *num) {
 	NSMutableArray *concat = [[NSMutableArray alloc] init];
 	[temp setString:@""];
 	
-	NSLog(@"Number of terms: %li", (long)[sd count]);
+	//NSLog(@"Number of terms: %li", (long)[sd count]);
 	
 	// All terms except x^1, x^0
 	for (long i = [sd count] - 1; i > 1; i--) {
@@ -150,10 +150,10 @@ BOOL isInt(NSNumber *num) {
 			//no index, so go straight to appending object
 			[concat addObject:[term mutableCopy]];
 			
-			NSLog(@"Term in x^1");
-			NSLog(@"\t%@", [[concat lastObject] class]);
-			NSLog(@"\t%@", [[concat lastObject] mutableString]);
-			NSLog(@"———––––––––––––");
+			//NSLog(@"Term in x^1");
+			//NSLog(@"\t%@", [[concat lastObject] class]);
+			//NSLog(@"\t%@", [[concat lastObject] mutableString]);
+			//NSLog(@"———––––––––––––");
 		}
 	}
 	
@@ -175,10 +175,10 @@ BOOL isInt(NSNumber *num) {
 		
 		//no index, no x, so go straight to appending object, no need to copy
 		[concat addObject:term];
-		NSLog(@"Term in x^0");
-		NSLog(@"\t%@", [[concat lastObject] class]);
-		NSLog(@"\t%@", [[concat lastObject] mutableString]);
-		NSLog(@"———––––––––––––");
+		//NSLog(@"Term in x^0");
+		//NSLog(@"\t%@", [[concat lastObject] class]);
+		//NSLog(@"\t%@", [[concat lastObject] mutableString]);
+		//NSLog(@"———––––––––––––");
 	}
 	
 	//create attributed string for the whole expression
@@ -191,20 +191,20 @@ BOOL isInt(NSNumber *num) {
 	
 	//if there is anything in the print array
 	if (concat.count) {
-		NSLog(@"Concat length: %li", (long)concat.count);
+		//NSLog(@"Concat length: %li", (long)concat.count);
 		for (int i = 0; i < concat.count; i++) {					// for each item in array
 			
-			NSLog(@"%i: %@", i, [[concat objectAtIndex:i] class]);
-			NSLog(@"%@", [[concat objectAtIndex:i] string]);
+			//NSLog(@"%i: %@", i, [[concat objectAtIndex:i] class]);
+			//NSLog(@"%@", [[concat objectAtIndex:i] string]);
 			
 			[attr appendAttributedString: [concat objectAtIndex:i]];	// append item
 			
 			if (i < concat.count - 1) {												// if there are still items...
-				NSLog(@"%@", [[[concat objectAtIndex:i+1] string] class]);
+				//NSLog(@"%@", [[[concat objectAtIndex:i+1] string] class]);
 				
 				unichar ch = [[[concat objectAtIndex:i+1] string] characterAtIndex:0];	//check first character of next item
-				NSLog(@"%c", ch);
-				NSLog(@"HERE??");
+				//NSLog(@"%c", ch);
+				//NSLog(@"HERE??");
 				//*
 				if (ch == '-') {										// if it's '-'
 					[attr appendAttributedString:minus];				// append subtraction string
@@ -226,21 +226,19 @@ BOOL isInt(NSNumber *num) {
 	while ([attr.mutableString rangeOfString:@"-"].location != NSNotFound) {
 		[attr replaceCharactersInRange:[attr.mutableString rangeOfString:@"-"] withString:@"–"];
 	}
-		
-//	NSLog(@"Class is %@.", [attr class]);
 	
 	return attr;
 }
 
 -(NSMutableAttributedString *) bothSides {
-	NSLog(@"Left");
+	//NSLog(@"Left");
 	
 	NSMutableAttributedString *sides = [self side:self.l];
 	NSAttributedString *equality = [[NSAttributedString alloc] initWithString:@" = "
 																   attributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Roman" size:20]}];
 	[sides appendAttributedString:equality];
 	
-	NSLog(@"Right");
+	//NSLog(@"Right");
 	
 	[sides appendAttributedString:[self side:self.r]];
 	
