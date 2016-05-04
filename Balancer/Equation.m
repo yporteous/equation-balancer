@@ -231,11 +231,13 @@ BOOL isInt(NSNumber *num) {
 	return attr;
 }
 
--(NSMutableAttributedString *) bothSides {
+-(NSMutableAttributedString *) bothSides:(unichar)rel {
 	//NSLog(@"Left");
-	
+//	NSLog(@"%c", rel);
 	NSMutableAttributedString *sides = [self side:self.l];
-	NSAttributedString *equality = [[NSAttributedString alloc] initWithString:@" = "
+	NSString *relString = [NSString stringWithFormat:@" %c ", rel];
+//	NSLog(@"%@", relString);
+	NSAttributedString *equality = [[NSAttributedString alloc] initWithString:relString
 																   attributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Roman" size:20]}];
 	[sides appendAttributedString:equality];
 	
