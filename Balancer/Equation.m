@@ -278,12 +278,19 @@ BOOL isInt(NSNumber *num) {
 		NSMutableString *rootUnattr = [NSMutableString stringWithFormat:@"(x - "];
 		
 		for (long i = 0; i < [roots count]; i++) {
-			[rootUnattr setString:@"(x – "];			//clear rootUnattr
 			
-			//ternary condition to add as root int if possible
-			isInt([roots objectAtIndex:i]) ?
-			[rootUnattr appendFormat:@"%d)", [[roots objectAtIndex:i] integerValue]] :
-			[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
+			if ([[roots objectAtIndex:i] doubleValue] == 0.0) {
+				[rootUnattr setString:@"x "];
+			}
+			
+			else {
+				[rootUnattr setString:@"(x – "];			//clear rootUnattr
+				
+				//ternary condition to add as root int if possible
+				isInt([roots objectAtIndex:i]) ?
+				[rootUnattr appendFormat:@"%d)", [[roots objectAtIndex:i] integerValue]] :
+				[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
+			}
 			
 			//check for double -ve, replace with +ve
 			[rootUnattr replaceOccurrencesOfString:@"– -" withString:@"+ " options:NSLiteralSearch range:NSMakeRange(0, [rootUnattr length])];
@@ -300,6 +307,9 @@ BOOL isInt(NSNumber *num) {
 			//append to main return string
 			[factorised appendAttributedString:bracket];
 		}
+		
+		
+		
 		//string to hold relation type
 		NSString *relString = [NSString stringWithFormat:@" %c ", rel];
 		

@@ -140,11 +140,36 @@
 	NSMutableArray *hold = eqn.l;						//put lhs in temporary holding variable
 	eqn.l = eqn.r;										//rhs -> lhs
 	eqn.r = hold;										//put holding in rhs
+	//change relation type if <>
+	switch (relType) {
+		case '>':
+			relType = '<';
+			relTypeSelect.selectedSegmentIndex = 0;
+			break;
+		case '<':
+			relType = '>';
+			relTypeSelect.selectedSegmentIndex = 2;
+		default:
+			break;
+	}
+	
 	equationLabel.attributedText = [eqn bothSides:relType];	//print equation
 }
 
 -(IBAction)negate {
 	[eqn scale:(-1.0)];									//scale by -1
+	//change relation type if <>
+	switch (relType) {
+		case '>':
+			relType = '<';
+			relTypeSelect.selectedSegmentIndex = 0;
+			break;
+		case '<':
+			relType = '>';
+			relTypeSelect.selectedSegmentIndex = 2;
+		default:
+			break;
+	}
 	equationLabel.attributedText = [eqn bothSides:relType];	//print equation
 }
 
@@ -173,9 +198,11 @@
 	NSAttributedString *factorisedString = [eqn factoriseQuad:relType];
 	if (!factFlag && [factorisedString.string length] > 0) {	//if unfactorised and we get a string from the method,
 		equationLabel.attributedText = factorisedString;		//print factorised equation
+		factFlag = TRUE;
 	}
 	else {
 		equationLabel.attributedText = [eqn bothSides:relType];
+		factFlag = FALSE;
 	}
 }
 
