@@ -17,6 +17,7 @@
 @property int index;													//holds index variable
 @property unichar relType;												//holds relation type variable
 @property BOOL setFlag;													//holds set/solve flag
+@property BOOL factFlag;												//factorised/unfactorised flag
 @property IBOutlet UIButton *plsXN;										//refers to +x^n button
 @property IBOutlet UIButton *minXN;										//refers to -x^n button
 @property IBOutlet UIButton *plsX1;										//refers to +x^1 button
@@ -42,6 +43,7 @@
 -(IBAction)swapSides;													//lhs <–> rhs
 -(IBAction)negate;														//×-1
 -(IBAction)setRel:(UISegmentedControl *)sender;							//set relation type
+-(IBAction)factoriseQuadratic;											//factorise a quadratic equation
 
 @end
 

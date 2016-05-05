@@ -38,7 +38,6 @@ BOOL isInt(NSNumber *num) {
 	return self;
 }
 
-
 -(void) scale:(double)f {
 	for (int i = 0; i < [l count]; i++) {
 		double rep = f * [[self.l objectAtIndex:i] doubleValue];
@@ -232,21 +231,92 @@ BOOL isInt(NSNumber *num) {
 }
 
 -(NSMutableAttributedString *) bothSides:(unichar)rel {
-	//NSLog(@"Left");
-//	NSLog(@"%c", rel);
 	NSMutableAttributedString *sides = [self side:self.l];
+	
 	NSString *relString = [NSString stringWithFormat:@" %c ", rel];
-//	NSLog(@"%@", relString);
+	
 	NSAttributedString *equality = [[NSAttributedString alloc] initWithString:relString
 																   attributes:@{NSFontAttributeName : [UIFont fontWithName:@"CMUSerif-Roman" size:20]}];
 	[sides appendAttributedString:equality];
-	
-	//NSLog(@"Right");
 	
 	[sides appendAttributedString:[self side:self.r]];
 	
 	return sides;
 }
 
+-(NSMutableAttributedString *) factoriseQuad:(unichar)rel {
+	
+	UIFont *font = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
+	UIFont *fontItalic = [UIFont fontWithName:@"CMUSerif-Italic" size:20];
+	
+	NSArray *roots;										//array of roots
+	NSMutableArray *temp = [self.l mutableCopy];		//make local editable copy of side's array
+	NSMutableAttributedString *factorised = [[NSMutableAttributedString alloc] init];	//allocate string to return
+	
+	//strip all unneeded object
+	while ([[temp lastObject]  isEqual: @(0.0)]) {
+		[temp removeLastObject];
+	}
+	
+	//if quadratic (3 term x^0, x^1, x^2)
+	if ([temp count] == 3) {
+		
+		//quadratic equation formula
+		double a = [[temp lastObject] doubleValue];
+		double b = [[temp objectAtIndex:1] doubleValue];
+		double c = [[temp firstObject] doubleValue];
+		double x1 = (-b + sqrt(b*b - 4 * a * c))/(2 * a);
+		double x2 = (-b - sqrt(b*b - 4 * a * c))/(2 * a);
+		
+		//put roots in array
+		roots = [NSArray arrayWithObjects:@(x1), @(x2), nil];
+		
+		//mutableString for each root
+		NSMutableAttributedString *bracket;
+		
+		//unattributed holder builder string
+		NSMutableString *rootUnattr = [NSMutableString stringWithFormat:@"(x - "];
+		
+		for (long i = 0; i < [roots count]; i++) {
+			[rootUnattr setString:@"(x – "];			//clear rootUnattr
+			
+			//ternary condition to add as root int if possible
+			isInt([roots objectAtIndex:i]) ?
+			[rootUnattr appendFormat:@"%d)", [[roots objectAtIndex:i] integerValue]] :
+			[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
+			
+			//check for double -ve, replace with +ve
+			[rootUnattr replaceOccurrencesOfString:@"– -" withString:@"+ " options:NSLiteralSearch range:NSMakeRange(0, [rootUnattr length])];
+			
+			//initialise bracket to new string with rootUnattr
+			bracket = [[NSMutableAttributedString alloc] initWithString:rootUnattr attributes:@{NSFontAttributeName: font}];
+			
+			//italicise x
+			NSRange indexLoc = [bracket.string rangeOfString:@"x"];
+			if (indexLoc.location != NSNotFound) {
+				[bracket setAttributes:@{NSFontAttributeName : fontItalic} range:indexLoc];
+			}
+			
+			//append to main return string
+			[factorised appendAttributedString:bracket];
+		}
+		//string to hold relation type
+		NSString *relString = [NSString stringWithFormat:@" %c ", rel];
+		
+		//make it attributed and append to string
+		NSAttributedString *equality = [[NSAttributedString alloc] initWithString:relString attributes:@{NSFontAttributeName : font}];
+		[factorised appendAttributedString:equality];
+		
+		//append RHS
+		[factorised appendAttributedString:[self side:self.r]];
+		
+	}
+	else {	//if not attributed, set to a blank string
+		NSAttributedString *blank = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: font}];
+		[factorised setAttributedString:blank];
+	}
+	
+	return factorised;
+}
 
 @end

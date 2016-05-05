@@ -19,8 +19,8 @@
 
 -(void) scale:(double)f;						//scales both sides by factor f
 -(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both;		//adds a factor of f*x^d to left or both sides
--(NSMutableAttributedString *) side:(NSMutableArray *)s;	//creates a string of one side for printing
--(NSMutableAttributedString *) bothSides:(unichar)rel;						//creates final string using rel as relation
-
+-(NSMutableAttributedString *) side:(NSMutableArray *)s;		//creates a string of one side for printing
+-(NSMutableAttributedString *) bothSides:(unichar)rel;			//creates final string using rel as relation
+-(NSMutableAttributedString *) factoriseQuad:(unichar)rel;	//creates a string that represents a factorised quadratic, takes one side as argument
 
 @end

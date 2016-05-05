@@ -15,7 +15,7 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel, scaleFactorLabel, indexLabel, scaleFactor, index, setFlag, plsXN, minXN, plsX1, minX1, plus1, minus1, relTypeSelect, relType;
+@synthesize equationLabel, scaleFactorLabel, indexLabel, scaleFactor, index, setFlag, factFlag, plsXN, minXN, plsX1, minX1, plus1, minus1, relTypeSelect, relType;
 
 
 - (void)viewDidLoad {
@@ -27,6 +27,7 @@
 	relType = '=';								//initially adding
 	index = 1;									//initial index of ±x^n is 1
 	setFlag = TRUE;								//set/solve initially true = solve
+	factFlag = FALSE;
 	equationLabel.attributedText = [eqn bothSides:relType];		//set eqn
 	
 	UIFont *fontNormal = [UIFont fontWithName:@"CMUSerif-Roman" size:20];
@@ -154,15 +155,12 @@
 		case 0:											//0 => '<'
 			relType = '<';
 			break;
-		
 		case 1:											//1 => '='
 			relType = '=';
 			break;
-			
 		case 2:											//2 => '>'
 			relType = '>';
 			break;
-			
 		default:										//just in case, set to '=' otherwise
 			relType = '=';
 			break;
@@ -171,7 +169,15 @@
 	equationLabel.attributedText = [eqn bothSides:relType];	//print equation
 }
 
-
+-(IBAction)factoriseQuadratic {
+	NSAttributedString *factorisedString = [eqn factoriseQuad:relType];
+	if (!factFlag && [factorisedString.string length] > 0) {	//if unfactorised and we get a string from the method,
+		equationLabel.attributedText = factorisedString;		//print factorised equation
+	}
+	else {
+		equationLabel.attributedText = [eqn bothSides:relType];
+	}
+}
 
 
 
