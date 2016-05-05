@@ -267,10 +267,10 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcX-Kg-Z9v">
-                                <rect key="frame" x="295" y="675" width="178" height="30"/>
+                                <rect key="frame" x="283" y="675" width="202" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="01p-G4-SiQ"/>
-                                    <constraint firstAttribute="width" secondItem="LcX-Kg-Z9v" secondAttribute="height" multiplier="89:15" id="Fpq-ny-sF2"/>
+                                    <constraint firstAttribute="width" secondItem="LcX-Kg-Z9v" secondAttribute="height" multiplier="101:18" id="XNG-Zm-aY8"/>
+                                    <constraint firstAttribute="width" constant="202" id="prs-rF-jt9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Factorise Quadratic"/>
@@ -285,6 +285,7 @@
                             <constraint firstItem="z3F-qc-OjV" firstAttribute="top" secondItem="QmA-X2-NgI" secondAttribute="bottom" constant="8" id="2Z2-lA-qWa"/>
                             <constraint firstItem="Us5-Oh-fQS" firstAttribute="centerX" secondItem="QmA-X2-NgI" secondAttribute="centerX" id="2ii-wV-Ygj"/>
                             <constraint firstItem="6vx-ta-Ie1" firstAttribute="top" secondItem="z3F-qc-OjV" secondAttribute="bottom" constant="8" id="5cp-hU-hXy"/>
+                            <constraint firstItem="LcX-Kg-Z9v" firstAttribute="centerX" secondItem="LLg-Ld-XZ2" secondAttribute="centerX" id="5og-kx-3G6"/>
                             <constraint firstItem="hcQ-xr-sYr" firstAttribute="top" secondItem="lqe-Fk-Wyw" secondAttribute="bottom" constant="8" id="6Zp-4O-Rhi"/>
                             <constraint firstItem="VDI-Pm-1Cq" firstAttribute="centerX" secondItem="hcQ-xr-sYr" secondAttribute="centerX" id="C5g-dL-lMF"/>
                             <constraint firstItem="hcQ-xr-sYr" firstAttribute="centerX" secondItem="lqe-Fk-Wyw" secondAttribute="centerX" id="CGS-PS-dQs"/>
@@ -316,7 +317,6 @@
                             <constraint firstItem="NLz-WG-hnB" firstAttribute="centerY" secondItem="33c-eZ-fKt" secondAttribute="centerY" id="r07-kQ-TwD"/>
                             <constraint firstItem="pcC-LO-bnB" firstAttribute="centerX" secondItem="Gew-fd-sah" secondAttribute="centerX" id="rz9-tp-Czl"/>
                             <constraint firstItem="LLg-Ld-XZ2" firstAttribute="top" secondItem="A39-gr-AMB" secondAttribute="bottom" constant="8" id="tB1-vL-wBP"/>
-                            <constraint firstItem="LLg-Ld-XZ2" firstAttribute="centerX" secondItem="LcX-Kg-Z9v" secondAttribute="centerX" id="tSg-C5-Olc"/>
                             <constraint firstItem="QmA-X2-NgI" firstAttribute="leading" secondItem="VDI-Pm-1Cq" secondAttribute="trailing" constant="35" id="tx3-6V-pma"/>
                             <constraint firstItem="z3F-qc-OjV" firstAttribute="top" secondItem="VDI-Pm-1Cq" secondAttribute="bottom" constant="-2" id="u2h-Hz-rVp"/>
                             <constraint firstItem="Us5-Oh-fQS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="vxV-fI-wFq"/>
@@ -327,6 +327,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="equationLabel" destination="Us5-Oh-fQS" id="KSJ-ah-CxG"/>
+                        <outlet property="factoriseButton" destination="LcX-Kg-Z9v" id="m1A-EP-Lli"/>
                         <outlet property="indexLabel" destination="QmA-X2-NgI" id="byJ-Pm-bNz"/>
                         <outlet property="minX1" destination="hcQ-xr-sYr" id="mgf-sF-RYE"/>
                         <outlet property="minXN" destination="VDI-Pm-1Cq" id="Ba8-id-VwW"/>

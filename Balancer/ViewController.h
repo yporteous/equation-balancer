@@ -25,6 +25,7 @@
 @property IBOutlet UIButton *plus1;										//refers to +1 button
 @property IBOutlet UIButton *minus1;									//refers to -1 button
 @property IBOutlet UISegmentedControl *relTypeSelect;					//refers to relation type segmented control
+@property IBOutlet UIButton *factoriseButton;							//button to un/factorise
 
 @property Equation *eqn;												//main equation
 

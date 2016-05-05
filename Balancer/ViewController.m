@@ -15,7 +15,7 @@
 @implementation ViewController
 
 @synthesize eqn;
-@synthesize equationLabel, scaleFactorLabel, indexLabel, scaleFactor, index, setFlag, factFlag, plsXN, minXN, plsX1, minX1, plus1, minus1, relTypeSelect, relType;
+@synthesize equationLabel, scaleFactorLabel, indexLabel, scaleFactor, index, setFlag, factFlag, plsXN, minXN, plsX1, minX1, plus1, minus1, relTypeSelect, relType, factoriseButton;
 
 
 - (void)viewDidLoad {
@@ -199,10 +199,12 @@
 	if (!factFlag && [factorisedString.string length] > 0) {	//if unfactorised and we get a string from the method,
 		equationLabel.attributedText = factorisedString;		//print factorised equation
 		factFlag = TRUE;
+		[factoriseButton setTitle:@"Unfactorise Quadratic" forState:UIControlStateNormal];
 	}
 	else {
 		equationLabel.attributedText = [eqn bothSides:relType];
 		factFlag = FALSE;
+		[factoriseButton setTitle:@"Factorise Quadratic" forState:UIControlStateNormal];
 	}
 }
 
