@@ -288,7 +288,7 @@ BOOL isInt(NSNumber *num) {
 				
 				//ternary condition to add as root int if possible
 				isInt([roots objectAtIndex:i]) ?
-				[rootUnattr appendFormat:@"%d)", [[roots objectAtIndex:i] integerValue]] :
+				[rootUnattr appendFormat:@"%ld)", (long)[[roots objectAtIndex:i] integerValue]] :
 				[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
 			}
 			
