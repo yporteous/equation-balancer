@@ -25,7 +25,7 @@
 	eqn = [[Equation alloc] init];				//allocate the central Equation object
 	scaleFactor = 1;							//initial Scale Factor is 1
 	relType = '=';								//initially adding
-	index = 1;									//initial index of ±x^n is 1
+	index = 2;									//initial index of ±x^n is 1
 	setFlag = TRUE;								//set/solve initially true = solve
 	factFlag = FALSE;
 	equationLabel.attributedText = [eqn bothSides:relType];		//set eqn

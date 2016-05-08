@@ -139,7 +139,7 @@
                                     <action selector="subXN" destination="BYZ-38-t0r" eventType="touchUpInside" id="Im1-NF-liD"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="z3F-qc-OjV">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" value="2" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="z3F-qc-OjV">
                                 <rect key="frame" x="337" y="484" width="94" height="29"/>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="465" y="440" width="94" height="29"/>
@@ -148,7 +148,7 @@
                                     <action selector="changeIndex:" destination="BYZ-38-t0r" eventType="valueChanged" id="wNe-Ni-Iey"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmA-X2-NgI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmA-X2-NgI">
                                 <rect key="frame" x="363" y="455" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QmA-X2-NgI" secondAttribute="height" multiplier="2:1" id="gHN-3L-6Jt"/>

@@ -265,8 +265,18 @@ BOOL isInt(NSNumber *num) {
 		double a = [[temp lastObject] doubleValue];
 		double b = [[temp objectAtIndex:1] doubleValue];
 		double c = [[temp firstObject] doubleValue];
-		double x1 = (-b + sqrt(b*b - 4 * a * c))/(2 * a);
-		double x2 = (-b - sqrt(b*b - 4 * a * c))/(2 * a);
+		double x1, x2;
+		BOOL real = TRUE;
+		if (b*b - 4 * a * c >= 0) {
+			x1 = (-b + sqrt(b*b - 4 * a * c))/(2 * a);
+			x2 = (-b - sqrt(b*b - 4 * a * c))/(2 * a);
+		}
+		
+		else {
+			x1 = (-b + sqrt(-b*b + 4 * a * c))/(2 * a);
+			x2 = (-b - sqrt(-b*b + 4 * a * c))/(2 * a);
+			real = FALSE;
+		}
 		
 		//put roots in array
 		roots = [NSArray arrayWithObjects:@(x1), @(x2), nil];
@@ -286,10 +296,29 @@ BOOL isInt(NSNumber *num) {
 			else {
 				[rootUnattr setString:@"(x – "];			//clear rootUnattr
 				
-				//ternary condition to add as root int if possible
-				isInt([roots objectAtIndex:i]) ?
-				[rootUnattr appendFormat:@"%ld)", (long)[[roots objectAtIndex:i] integerValue]] :
-				[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
+				if (real) {
+					//ternary condition to add as root int if possible
+					isInt([roots objectAtIndex:i]) ?
+					[rootUnattr appendFormat:@"%li)", (long)[[roots objectAtIndex:i] integerValue]] :
+					[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
+				}
+				else {
+					if ([[roots objectAtIndex:i] isEqual:@(1)]) {
+						[rootUnattr appendString:@"i)"];
+					}
+					else if ([[roots objectAtIndex:i] isEqual:@(-1)]) {
+						[rootUnattr appendString:@"-i)"];
+					}
+					else {
+						//ternary condition to add as root int if possible
+						isInt([roots objectAtIndex:i]) ?
+						[rootUnattr appendFormat:@"%lii)", (long)[[roots objectAtIndex:i] integerValue]] :
+						[rootUnattr appendFormat:@"%fi)", [[roots objectAtIndex:i] doubleValue]];
+					}
+				}
+				
+				
+				
 			}
 			
 			//check for double -ve, replace with +ve
@@ -300,6 +329,12 @@ BOOL isInt(NSNumber *num) {
 			
 			//italicise x
 			NSRange indexLoc = [bracket.string rangeOfString:@"x"];
+			if (indexLoc.location != NSNotFound) {
+				[bracket setAttributes:@{NSFontAttributeName : fontItalic} range:indexLoc];
+			}
+			
+			//italicise i if present
+			indexLoc = [bracket.string rangeOfString:@"i"];
 			if (indexLoc.location != NSNotFound) {
 				[bracket setAttributes:@{NSFontAttributeName : fontItalic} range:indexLoc];
 			}
