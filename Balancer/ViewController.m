@@ -153,7 +153,13 @@
 			break;
 	}
 	
-	equationLabel.attributedText = [eqn bothSides:relType];	//print equation
+	if (factFlag) {
+		[self factoriseQuadratic];
+	}
+	
+	else {
+		equationLabel.attributedText = [eqn bothSides:relType];	//print equation
+	}
 }
 
 -(IBAction)negate {
@@ -170,7 +176,14 @@
 		default:
 			break;
 	}
-	equationLabel.attributedText = [eqn bothSides:relType];	//print equation
+	
+	if (factFlag) {
+		[self factoriseQuadratic];
+	}
+	
+	else {
+		equationLabel.attributedText = [eqn bothSides:relType];	//print equation
+	}
 }
 
 

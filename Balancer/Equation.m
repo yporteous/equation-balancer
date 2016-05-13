@@ -278,6 +278,19 @@ BOOL isInt(NSNumber *num) {
 			real = FALSE;
 		}
 		
+		if (a != 1.0) {
+			NSMutableString *multiplier;
+			if (isInt(@(a))) {
+				multiplier = [NSMutableString stringWithFormat:@"%li", (long)a];
+			}
+			else {
+				multiplier = [NSMutableString stringWithFormat:@"%f", a];
+			}
+			[multiplier replaceOccurrencesOfString:@"-" withString:@"–" options:NSLiteralSearch range:NSMakeRange(0, [multiplier length])];
+			[multiplier replaceOccurrencesOfString:@"1" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [multiplier length])];
+			[factorised appendAttributedString:[[NSMutableAttributedString alloc] initWithString:multiplier attributes:@{NSFontAttributeName: font}]];
+		}
+		
 		//put roots in array
 		roots = [NSArray arrayWithObjects:@(x1), @(x2), nil];
 		
