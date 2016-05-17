@@ -267,27 +267,38 @@ BOOL isInt(NSNumber *num) {
 		double c = [[temp firstObject] doubleValue];
 		double x1, x2;
 		BOOL real = TRUE;
+		
+		// if real solution(s), simply follow formula		TODO: check for repeated roots
 		if (b*b - 4 * a * c >= 0) {
 			x1 = (-b + sqrt(b*b - 4 * a * c))/(2 * a);
 			x2 = (-b - sqrt(b*b - 4 * a * c))/(2 * a);
 		}
 		
+		// if complex solutions, negate discriminant
 		else {
 			x1 = (-b + sqrt(-b*b + 4 * a * c))/(2 * a);
 			x2 = (-b - sqrt(-b*b + 4 * a * c))/(2 * a);
 			real = FALSE;
 		}
 		
+		// check for premultiplier: if a ≠ 1
 		if (a != 1.0) {
 			NSMutableString *multiplier;
+			//check if int for appropriate formatting
 			if (isInt(@(a))) {
 				multiplier = [NSMutableString stringWithFormat:@"%li", (long)a];
 			}
 			else {
 				multiplier = [NSMutableString stringWithFormat:@"%f", a];
 			}
+			//replace '-' with (longer) '–'
 			[multiplier replaceOccurrencesOfString:@"-" withString:@"–" options:NSLiteralSearch range:NSMakeRange(0, [multiplier length])];
-			[multiplier replaceOccurrencesOfString:@"1" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [multiplier length])];
+			
+			// if -1, remove the 1
+			if (a == -1.0) {
+				[multiplier replaceOccurrencesOfString:@"1" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [multiplier length])];
+			}
+			// append multiplier to final string
 			[factorised appendAttributedString:[[NSMutableAttributedString alloc] initWithString:multiplier attributes:@{NSFontAttributeName: font}]];
 		}
 		
@@ -298,30 +309,36 @@ BOOL isInt(NSNumber *num) {
 		NSMutableAttributedString *bracket;
 		
 		//unattributed holder builder string
-		NSMutableString *rootUnattr = [NSMutableString stringWithFormat:@"(x - "];
+		NSMutableString *rootUnattr = [NSMutableString stringWithFormat:@"(x – "];
 		
+		//for each root:
 		for (long i = 0; i < [roots count]; i++) {
-			
+			// if 0, just write 'x'
 			if ([[roots objectAtIndex:i] doubleValue] == 0.0) {
 				[rootUnattr setString:@"x "];
 			}
-			
+			// if non-zero, write (x-a):
 			else {
-				[rootUnattr setString:@"(x – "];			//clear rootUnattr
+				[rootUnattr setString:@"(x – "];			//clear rootUnattr to starting value
 				
+				// if real roots, no need to multiply by i
 				if (real) {
-					//ternary condition to add as root int if possible
+					//ternary condition to add as root int if appropriate
 					isInt([roots objectAtIndex:i]) ?
 					[rootUnattr appendFormat:@"%li)", (long)[[roots objectAtIndex:i] integerValue]] :
 					[rootUnattr appendFormat:@"%f)", [[roots objectAtIndex:i] doubleValue]];
 				}
+				// if complex roots, need to add factor of i
 				else {
+					// if +i, no need to add coeff
 					if ([[roots objectAtIndex:i] isEqual:@(1)]) {
 						[rootUnattr appendString:@"i)"];
 					}
+					// if -i, only need -ve sign
 					else if ([[roots objectAtIndex:i] isEqual:@(-1)]) {
-						[rootUnattr appendString:@"-i)"];
+						[rootUnattr appendString:@"–i)"];
 					}
+					//otherwise write ±ai
 					else {
 						//ternary condition to add as root int if possible
 						isInt([roots objectAtIndex:i]) ?
@@ -329,9 +346,6 @@ BOOL isInt(NSNumber *num) {
 						[rootUnattr appendFormat:@"%fi)", [[roots objectAtIndex:i] doubleValue]];
 					}
 				}
-				
-				
-				
 			}
 			
 			//check for double -ve, replace with +ve
@@ -356,8 +370,6 @@ BOOL isInt(NSNumber *num) {
 			[factorised appendAttributedString:bracket];
 		}
 		
-		
-		
 		//string to hold relation type
 		NSString *relString = [NSString stringWithFormat:@" %c ", rel];
 		
@@ -369,7 +381,7 @@ BOOL isInt(NSNumber *num) {
 		[factorised appendAttributedString:[self side:self.r]];
 		
 	}
-	else {	//if not attributed, set to a blank string
+	else {	//if not quadratic, set to a blank string
 		NSAttributedString *blank = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: font}];
 		[factorised setAttributedString:blank];
 	}
