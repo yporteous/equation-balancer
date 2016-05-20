@@ -26,13 +26,12 @@ BOOL isInt(NSNumber *num) {
 
 
 -(id) init {
-//	self ;
 	if (self = [super init]) {
-		self.l = [[NSMutableArray alloc] init];
-		self.r = [[NSMutableArray alloc] init];
-		[self.l addObject:@(0.0)];
+		self.l = [[NSMutableArray alloc] init];		//array for lhs
+		self.r = [[NSMutableArray alloc] init];		//array for rhs
+		[self.l addObject:@(0.0)];					//set lhs to x
 		[self.l addObject:@(1.0)];
-		[self.r addObject:@(1.0)];
+		[self.r addObject:@(1.0)];					//set rhs to 1
 		[self.r addObject:@(0.0)];
 	}
 	return self;
@@ -40,28 +39,26 @@ BOOL isInt(NSNumber *num) {
 
 -(void) scale:(double)f {
 	for (int i = 0; i < [l count]; i++) {
-		double rep = f * [[self.l objectAtIndex:i] doubleValue];
-//		NSNumber *replaceWith = ((isInt(@(rep))) ? @((int)rep) : @(rep));
-		[self.l replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];
+		double rep = f * [[self.l objectAtIndex:i] doubleValue];		//scale by f
+		[self.l replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];		//check if setting to int is appropriate
 	}
 	
 	for (int i = 0; i < [r count]; i++) {
-		double rep = f * [[self.r objectAtIndex:i] doubleValue];
-		[self.r replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];
+		double rep = f * [[self.r objectAtIndex:i] doubleValue];		//scale by f
+		[self.r replaceObjectAtIndex:i withObject:((isInt(@(rep))) ? @((int)rep) : @(rep))];		//check if setting to int is appropriate
 	}
 	
 }
 
 -(void) add:(double)f atDegree:(int)d toBoth:(BOOL)both {
-	
-	while ([self.l count] - 1 < d) {
+	// append objects to reach correct degree		TODO: can these be safely combined into one loop?
+	while ([self.l count] < d + 1) {
 		[self.l addObject:@(0.0)];
 	}
-	
-	while ([self.r count] - 1 < d) {
+	while ([self.r count] < d + 1) {
 		[self.r addObject:@(0.0)];
 	}
-	
+	// both flag checks if adding to both sides or only one
 	if (both) {
 		[self.l replaceObjectAtIndex:d withObject:@(f + [[self.l objectAtIndex:d] doubleValue])];
 	}
@@ -128,10 +125,10 @@ BOOL isInt(NSNumber *num) {
 		//if coeff != 0
 		if ([[sd objectAtIndex:1] doubleValue] != 0.0) {
 			if ([[sd objectAtIndex:1] doubleValue] == 1.0) {
-				[temp appendString:@"x"];								// if 1 do not print coeff
+				[temp appendString:@"x"];								// if 1, do not print coeff
 			}
 			else if ([[sd objectAtIndex:1] doubleValue] == -1.0) {
-				[temp appendString:@"-x"];								// if -1 only print '-'
+				[temp appendString:@"-x"];								// if -1, only print '-'
 			}
 			else {														// print with coefficient, formatted appripriately
 				(isInt([sd objectAtIndex:1])) ?
